@@ -1,13 +1,33 @@
-# Simple redis configuration task
-## Step 1
-* start a simple redis instance using the docker-compose.yml file included in this repo
-* install necessary NPM modules and run src/redis.ts, which is a super simple test if the redis server is configured correctly. The result should look similar
-![alt text](image-1.png)
+# Redis Configuration and Failover Task
 
-## Step 2
-You will notice that this redis installation is not failsafe, so create a docker-compose which will install and run a simple fail-safe redis installation.
+## Step 1: Basic Redis Setup
+1. Start a simple Redis instance using the provided `docker-compose.yml` file.
+2. Install necessary NPM modules.
+3. Run `src/redis.ts` to test the Redis server configuration.
+   Expected output should resemble:
+   ![Redis test output](image-1.png)
 
-Find at least two solutions how this can be done and make a list of pros and cons for each of the two methods
+## Step 2: Implement Failsafe Redis
+Create a new `docker-compose.yml` file to set up a failsafe Redis installation.
 
-## Step 3
-make the src/redis.ts run against the new failsafe redis installation. Test the failover. If you can't get it running explain why and what changes should be made to the file src/redis.ts to make it fault tolerant
+Provide at least two solutions, including pros and cons for each:
+
+1. Solution A: [Brief description]
+   - Pros:
+     - ...
+   - Cons:
+     - ...
+
+2. Solution B: [Brief description]
+   - Pros:
+     - ...
+   - Cons:
+     - ...
+
+## Step 3: Test Failover
+1. Modify `src/redis.ts` to work with the new failsafe Redis installation.
+2. Test the failover mechanism.
+3. If unsuccessful, explain:
+   - Why it didn't work
+   - Necessary changes to `src/redis.ts` for fault tolerance
+
