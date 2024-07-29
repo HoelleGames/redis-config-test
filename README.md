@@ -26,8 +26,8 @@ Provide at least two solutions, including pros and cons for each:
 
 ## Step 3: Test Failover
 1. Modify `src/redis.ts` to work with the new failsafe Redis installation.
-2. Test the failover mechanism.
+2. Test the failover mechanism - the job `src/redis.ts` should continue to run and be able to write / read from the Redis installation even if a cluster component is restarted / crashes without interruption or need of restarting it.
 3. If unsuccessful, explain:
    - Why it didn't work
-   - Necessary changes to `src/redis.ts` for fault tolerance
+   - Necessary changes to `src/redis.ts` to make the job fault tolerant
 
