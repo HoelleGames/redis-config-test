@@ -12,7 +12,7 @@ dotenv.config({ path: '../.env' });
 export type ClientOpts = RedisClientOptions<RedisModules, RedisFunctions, RedisScripts>;
 
 function sleep(ms: number): Promise<unknown> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export class RedisConnector {
@@ -21,7 +21,7 @@ export class RedisConnector {
   private client: any;
   /**
    * set our options
-   * 
+   *
    */
   constructor() {
     this.connectOptions = Object.assign({}, config.REDIS_CONNECT);
@@ -69,7 +69,7 @@ export class RedisConnector {
       console.warn('redis error on close, ignoring', {
         error,
       });
-      return "OK";
+      return 'OK';
     }
   }
 
@@ -113,7 +113,7 @@ export class RedisConnector {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public async setAndExpire(key: string, seconds: number, value: string): Promise<any> {
-    return await this.client.set(key, value, { EX : seconds });
+    return await this.client.set(key, value, { EX: seconds });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -132,7 +132,7 @@ export class RedisConnector {
 (async () => {
   const redisConnector = new RedisConnector();
   await redisConnector.connect(config.REDIS_CONNECT);
-  const valueToStore = `we store this at ${(new Date()).getTime()}`;
+  const valueToStore = `we store this at ${new Date().getTime()}`;
   const keyToUse = 'testkey';
   await redisConnector.set(keyToUse, valueToStore);
   const valueRead = await redisConnector.get(keyToUse);
@@ -146,4 +146,3 @@ export class RedisConnector {
   }
   exit(0);
 })();
-
